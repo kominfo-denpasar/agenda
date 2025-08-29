@@ -5,7 +5,7 @@ services:
             dockerfile: Dockerfile.dev
         container_name: backend
         ports:
-            - "1234:80"
+            - "1234:1234"
         volumes:
             - ./../../backend:/var/www/html
             - ./../../backend/storage:/var/www/html/storage
@@ -28,7 +28,7 @@ services:
         profiles:
             - csr
         ports:
-            - "5678:5678"
+            - "5679:5679"
         volumes:
             - ./../../frontend:/app
             - /app/node_modules
@@ -44,7 +44,7 @@ services:
             dockerfile: Dockerfile.ssr.dev
         container_name: frontend
         ports:
-            - "5678:5678"
+            - "5679:5679"
             - "24678:24678"
         volumes:
             - ./../../frontend:/app

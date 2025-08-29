@@ -3,6 +3,18 @@ FROM serversideup/php:8.4-fpm-nginx-alpine
 ENV PHP_OPCACHE_ENABLE=1
 ENV NGINX_WEBROOT=/var/www/html/public
 
+
+# Install library pendukung GD
+RUN apk add --no-cache \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    freetype-dev
+
+# Compile & enable extension GD
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd
+
+
 WORKDIR /var/www/html
 
 RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache \

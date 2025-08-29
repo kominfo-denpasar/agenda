@@ -10,8 +10,16 @@ export default defineConfig({
     server: {
         hmr: {
             port: 24678,
-            protocol: "ws",
+            protocol: "wss",
+	    host: 'event.kreatifitas.site',
         },
+	host: true,
+	port: 5679,
+	allowedHosts: [
+      	    'localhost',
+      	    '127.0.0.1',
+            'event.kreatifitas.site'
+        ],
     },
     plugins: [
         react({

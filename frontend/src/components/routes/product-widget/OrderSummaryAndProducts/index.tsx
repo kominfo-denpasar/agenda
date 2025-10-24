@@ -59,7 +59,7 @@ const RefundStatusType = ({order}: { order: Order }) => {
 
 const OrderStatusType = ({order}: { order: Order }) => {
     const statuses: Record<string, { label: string, color: string }> = {
-        'COMPLETED': {label: t`Order Completed`, color: 'green'},
+        'COMPLETED': {label: t`Proses Selesai`, color: 'green'},
         'CANCELLED': {label: t`Order Cancelled`, color: 'red'},
         'PAYMENT_FAILED': {label: t`Payment Failed`, color: 'red'},
         'AWAITING_PAYMENT': {label: t`Awaiting Payment`, color: 'orange'},
@@ -90,8 +90,8 @@ const DetailItem = ({icon: Icon, label, value}: { icon: any, label: string, valu
 
 const WelcomeHeader = ({order, event}: { order: Order; event: Event }) => {
     const message = {
-        'COMPLETED': t`You're going to ${event.title}! 🎉`,
-        'CANCELLED': t`Your order has been cancelled`,
+        'COMPLETED': t`Kamu akan menghadiri acara ${event.title}! 🎉`,
+        'CANCELLED': t`Pesanan kamu telah dibatalkan`,
         'RESERVED': null,
         'AWAITING_OFFLINE_PAYMENT': t`Your order is awaiting payment 🏦`
     }[order.status];
@@ -104,13 +104,18 @@ const OrderDetails = ({order, event}: { order: Order, event: Event }) => (
         <SimpleGrid cols={{base: 1, sm: 2}} spacing="md">
             <DetailItem
                 icon={IconUser}
-                label={t`Name`}
-                value={`${order.first_name} ${order.last_name}`}
+                label={t`Nama Peserta`}
+                value={`${order.first_name}`}
             />
             <DetailItem
                 icon={IconId}
-                label={t`Order Reference`}
+                label={t`ID`}
                 value={order.public_id}
+            />
+            <DetailItem
+                icon={IconId}
+                label={t`Instansi`}
+                value={`${order.last_name}`}
             />
             <DetailItem
                 icon={IconMail}
@@ -119,7 +124,7 @@ const OrderDetails = ({order, event}: { order: Order, event: Event }) => (
             />
             <DetailItem
                 icon={IconCalendar}
-                label={t`Order Date`}
+                label={t`Tanggal`}
                 value={dateToBrowserTz(order.created_at, event.timezone)}
             />
             {!!order.refund_status && (
@@ -158,13 +163,13 @@ const EventDetails = ({event}: { event: Event }) => {
             <SimpleGrid cols={{base: 1, sm: 2}} spacing="md">
                 <DetailItem
                     icon={IconCalendarEvent}
-                    label={t`Event Date`}
+                    label={t`Tanggal Acara`}
                     value={<EventDateRange event={event}/>}
                 />
                 {venueDetails && (
                     <DetailItem
                         icon={IconMapPin}
-                        label={t`Location`}
+                        label={t`Lokasi`}
                         value={(
                             <NavLink
                                 to={event.settings?.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(formatAddress(event?.settings?.location_details))}`}
@@ -183,7 +188,7 @@ const EventDetails = ({event}: { event: Event }) => {
                 />
                 <DetailItem
                     icon={IconBuilding}
-                    label={t`Organizer`}
+                    label={t`Penyelenggara`}
                     value={(
                         <>
                             {event.organizer?.email && (
@@ -263,7 +268,7 @@ export const OrderSummaryAndProducts = () => {
                 {order?.status === 'AWAITING_OFFLINE_PAYMENT' && <OfflinePaymentInstructions event={event}/>}
 
                 <Group justify="space-between" align="center">
-                    <h1 className={classes.heading}>{t`Order Details`}</h1>
+                    <h1 className={classes.heading}>{t`Informasi`}</h1>
                     <OrderStatusType order={order}/>
                 </Group>
 
@@ -273,19 +278,19 @@ export const OrderSummaryAndProducts = () => {
 
                 {!!event?.settings?.post_checkout_message && <PostCheckoutMessage message={event.settings.post_checkout_message}/>}
 
-                <h1 className={classes.heading}>{t`Event Details`}</h1>
+                <h1 className={classes.heading}>{t`Informasi Acara`}</h1>
                 <EventDetails event={event}/>
 
                 {(order?.attendees && order.attendees.length > 0) && (
                     <Group justify="space-between" align="center">
-                        <h1 className={classes.heading}>{t`Guests`}</h1>
+                        <h1 className={classes.heading}>{t`Tiket Peserta`}</h1>
                         <Button
                             size="sm"
                             variant="transparent"
                             leftSection={<IconPrinter size={16}/>}
                             onClick={() => window?.open(`/order/${eventId}/${orderShortId}/print`, '_blank')}
                         >
-                            {t`Print All Tickets`}
+                            {t`Cetak`}
                         </Button>
                     </Group>
                 )}

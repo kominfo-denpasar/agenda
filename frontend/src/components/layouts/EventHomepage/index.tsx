@@ -172,7 +172,7 @@ const EventHomepage = ({colors, continueButtonText, backgroundType, ...loaderDat
                     {event?.description && (
                         <div className={classes.contentSection}>
                             <div className={classes.sectionContent}>
-                                <h2 className={classes.sectionTitle}>{t`About`}</h2>
+                                <h2 className={classes.sectionTitle}>{t`Tentang`}</h2>
                                 <div
                                     className={classes.eventDescription}
                                     dangerouslySetInnerHTML={{
@@ -288,7 +288,7 @@ const EventHomepage = ({colors, continueButtonText, backgroundType, ...loaderDat
                                             variant="outline"
                                             size="sm"
                                         >
-                                            {t`Contact`}
+                                            {t`Hubungi Penyelenggara`}
                                         </Button>
                                     </div>
                                 </div>
@@ -301,7 +301,7 @@ const EventHomepage = ({colors, continueButtonText, backgroundType, ...loaderDat
                         <div className={classes.sectionContent}>
                             <footer className={classes.footerSection}>
                                 <div className={classes.footerContent}>
-                                    <div className={classes.footerLinks}>
+                                    {/* <div className={classes.footerLinks}>
                                         <Anchor
                                             href={getConfig('VITE_TOS_URL', 'https://hi.events/terms-of-service?utm_source=event=homepage-footer') as string}
                                             className={classes.footerLink}
@@ -315,7 +315,7 @@ const EventHomepage = ({colors, continueButtonText, backgroundType, ...loaderDat
                                         >
                                             {t`Terms of Service`}
                                         </Anchor>
-                                    </div>
+                                    </div> */}
                                     <PoweredByFooter
                                         className={classes.poweredByFooter}
                                     />

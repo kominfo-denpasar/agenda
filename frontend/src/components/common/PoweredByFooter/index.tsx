@@ -25,21 +25,21 @@ export const PoweredByFooter = (props: React.DetailedHTMLProps<React.HTMLAttribu
     const footerContent = isHiEvents() ? (
         <>
             {t`Planning an event?`} {' '}
-            <a href="https://hi.events?utm_source=app-powered-by-footer&utm_content=try-hi-events-free"
+            <a href="#!https://hi.events?utm_source=app-powered-by-footer&utm_content=try-hi-events-free"
                target="_blank"
                className={classes.ctaLink}
-               title={'Effortlessly manage events and sell tickets online with Hi.Events'}>
-                {t`Try Hi.Events Free`}
+               title={''}>
+                {t`Pemerintah Kota Denpasar`} - {t`Crafted By SPBE Kominfos & Hi.Events`}
             </a>
         </>
     ) : (
         <>
-            {t`Powered by`} {' '}
-            <a href="https://hi.events?utm_source=app-powered-by-footer"
+            {' '}
+            <a href="https://denpasarkota.go.id"
                target="_blank"
-               title={'Effortlessly manage events and sell tickets online with Hi.Events'}>
-                Hi.Events
-            </a> 🚀
+               title={'Official Website of Denpasar City Government'}>
+                Pemerintah Kota Denpasar
+            </a> {'|'} {t`Crafted By SPBE Kominfos & Hi.Events`}
         </>
     );
 

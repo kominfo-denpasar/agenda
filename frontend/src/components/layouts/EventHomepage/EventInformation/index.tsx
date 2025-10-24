@@ -33,13 +33,13 @@ export const EventInformation: FC<{
                             />
                         </div>
                     )}
-                    <h2 className={classes.organizerName}>
+                    <h4 className={classes.organizerName}>
                         <Anchor
                             href={organizer?.status === 'LIVE' ? organizerHomepageUrl(organizer) : '#'}
                         >
                             {organizer.name}
                         </Anchor>
-                    </h2>
+                    </h4>
 
                 </div>
                 <div className={classes.shareButtons}>
@@ -92,7 +92,7 @@ export const EventInformation: FC<{
                                         size="xs"
                                         rightSection={<IconExternalLink size={15}/>}
                                     >
-                                        {event.settings.maps_url ? t`View map` : t`View on Google Maps`}
+                                        {event.settings.maps_url ? t`Lihat Peta` : t`Lihat di Google Maps`}
                                     </Button>
                                 </div>
                             </div>

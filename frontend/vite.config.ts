@@ -11,14 +11,19 @@ export default defineConfig({
         hmr: {
             port: 24678,
             protocol: "wss",
-	    host: 'event.kreatifitas.site',
+	    host: 'event.denpasarkota.go.id',
+	    clientPort: 24678,
+	    client: {
+	        host: 'event.denpasarkota.go.id'
+ 	    }
         },
 	host: true,
 	port: 5679,
 	allowedHosts: [
       	    'localhost',
       	    '127.0.0.1',
-            'event.kreatifitas.site'
+            'event.kreatifitas.site',
+            'event.denpasarkota.go.id'
         ],
     },
     plugins: [

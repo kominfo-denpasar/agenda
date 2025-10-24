@@ -530,7 +530,7 @@ const SelectProducts = (props: SelectProductsProps) => {
                         <Button disabled={isButtonDisabled} fullWidth className={'hi-continue-button'}
                                 type={"submit"}
                                 loading={productMutation.isPending}>
-                            {props.continueButtonText || event?.settings?.continue_button_text || t`Continue`}
+                            {props.continueButtonText || event?.settings?.continue_button_text || t`Lanjutkan`}
                         </Button>
                     </div>
                 </form>
@@ -539,7 +539,7 @@ const SelectProducts = (props: SelectProductsProps) => {
                 {(!showPromoCodeInput && !form.values.promo_code) && (
                     <Anchor className={'hi-have-a-promo-code-link'}
                             onClick={() => setShowPromoCodeInput(true)}>
-                        {t`Have a promo code?`}
+                        {t`Masukkan Kode jika Ada`}
                     </Anchor>
                 )}
                 {form.values.promo_code && (

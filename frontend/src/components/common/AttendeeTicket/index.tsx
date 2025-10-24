@@ -37,7 +37,7 @@ export const AttendeeTicket = ({attendee, product, event, hideButtons = false}: 
                     <div className={classes.productPrice}>
                         <div className={classes.badge}>
                             {productPrice > 0 && formatCurrency(productPrice, event?.currency)}
-                            {productPrice === 0 && t`Free`}
+                            {productPrice === 0 && t`Gratis`}
                         </div>
                     </div>
                 </div>
@@ -73,13 +73,13 @@ export const AttendeeTicket = ({attendee, product, event, hideButtons = false}: 
 
                 {!hideButtons && (
                     <div className={classes.productButtons}>
-                        <Button variant={'transparent'}
+                        {/* <Button variant={'transparent'}
                                 size={'sm'}
                                 onClick={() => window?.open(`/product/${event.id}/${attendee.short_id}/print`, '_blank', 'noopener,noreferrer')}
                                 leftSection={<IconPrinter size={18}/>
                                 }>
-                            {t`Print`}
-                        </Button>
+                            {t`Cetak`}
+                        </Button> */}
 
                         <CopyButton value={`${window?.location.origin}/product/${event.id}/${attendee.short_id}`}>
                             {({copied, copy}) => (

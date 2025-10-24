@@ -25,7 +25,7 @@ export const CheckoutSidebar = ({event, order, className = ''}: SidebarProps) =>
             <div className={classes.checkoutSummary}>
                 {(order && event) && (
                     <>
-                        <h4>{t`Order Summary`}</h4>
+                        <h4>{t`Summary`}</h4>
                         <OrderSummary event={event} order={order}/>
                     </>
                 )}

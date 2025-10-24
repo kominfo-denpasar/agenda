@@ -74,18 +74,18 @@ const Checkout = () => {
                                         leftSection={<IconArrowLeft size={20}/>}
                                         to={eventHomepageUrl(event)}
                                     >
-                                        {!isMobile && t`Event Homepage`}
+                                        {!isMobile && t`Halaman Acara`}
                                     </Button>
 
                                     <span className={classes.title}>
-                                        {order.status === 'RESERVED' && t`Checkout`}
-                                        {order.status === 'COMPLETED' && t`Your Order`}
+                                        {order.status === 'RESERVED' && t`Registrasi`}
+                                        {order.status === 'COMPLETED' && t`Registrasi Selesai`}
                                     </span>
 
                                     {orderIsReserved && (
                                         <Group gap="5px">
                                             <span>
-                                                {t`Time left:`}
+                                                {t`Waktu:`}
                                             </span>
                                             <Countdown
                                                 displayType={'short'}
@@ -151,16 +151,16 @@ const Checkout = () => {
             >
                 <div style={{textAlign: 'center', padding: '20px 0'}}>
                     <h3>
-                        {t`You have run out of time to complete your order.`}
+                        {t`Anda kehabisan waktu.`}
                     </h3>
                     <p>
-                        {t`Please return to the event page to start over.`}
+                        {t`Silakan kembali ke halaman acara untuk memulai ulang.`}
                     </p>
                     <Button
                         onClick={handleReturn}
                         variant="filled"
                     >
-                        {t`Return to Event Page`}
+                        {t`Kembali ke halaman acara`}
                     </Button>
                 </div>
             </Modal>
